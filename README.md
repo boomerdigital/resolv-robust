@@ -7,7 +7,7 @@ This is done via two methods:
 
 * DNS lookups are cached meaning that many times a DNS lookup is not even
   made and the previous answer is used.
-* Failed looksups will retry to deal with random DNS lookup failures
+* Failed lookups will retry to deal with random DNS lookup failures
 
 Usage
 -----
