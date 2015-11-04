@@ -63,11 +63,16 @@ additional level of robustness. But this library also benefits performance a
 good bit due to a cache lookup being faster. The file benchmark.rb demonstrates
 those differences. An example run is shown below:
 
+    Single Thread
                                             user       system     total       real
     system single thread                    0.060000   0.130000   0.190000 (  1.596554)
     resolv single thread                    0.380000   0.040000   0.420000 (  1.545678)
     resolve in-memory cache single thread   0.010000   0.000000   0.010000 (  0.012951)
     resolve redis cache single thread       0.080000   0.020000   0.100000 (  0.124226)
+
+
+    Thread Pool
+                                            user       system     total       real
     system thread pool                      0.070000   0.110000   0.180000 (  0.523810)
     resolv thread pool                      0.360000   0.080000   0.440000 (  0.413677)
     resolv in-memory cache thread pool      0.020000   0.000000   0.020000 (  0.021634)
@@ -76,7 +81,7 @@ those differences. An example run is shown below:
 A few things we have learned from this:
 
 1. In general the Resolv library results in a faster lookup than the system
-   Resolv. This was expected in a threaded environment as the Resolv library
+   resolving. This was expected in a threaded environment as the Resolv library
    was designed for a threaded environment. But it is also generally true for
    a single thread environment. Due to random fluctionations the system library
    sometimes is faster but generally the Resolv will be.
