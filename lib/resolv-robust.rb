@@ -5,7 +5,7 @@ require 'active_support/core_ext/numeric/time'
 
 class Resolv
   mattr_accessor :cache_store
-  self.cache_store = Rails.cache if defined? Rails
+  self.cache_store = Rails.cache if defined?(Rails) && Rails.respond_to?(:cache)
 
   mattr_accessor :cache_duration
   self.cache_duration = 1.hour
