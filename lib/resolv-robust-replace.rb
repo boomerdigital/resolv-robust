@@ -4,7 +4,7 @@
 #
 # 1. https://github.com/ruby/ruby/blob/trunk/lib/resolv-replace.rb
 
-require 'resolv-robust'
+require_relative './resolv-robust'
 
 # Let Ruby monkey-patch all the various object. Ruby will redirect everythign
 # to IPSocket::getaddress.
